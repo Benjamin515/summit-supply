@@ -1,0 +1,118 @@
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 16px;
+  /* border: 2px solid var(--green); */
+  /* border-radius: 4px; */
+  /* background-color: var(--prussian-blue); */
+  cursor: pointer;
+  transition: background-color 150ms ease-in;
+}
+
+.button__content {
+  display: flex;
+  align-items: center; /* Align icon and text vertically */
+  z-index: 100;
+}
+
+.button__icon {
+  margin-left: 8px; /* Space between the icon and the label */
+  display: flex; /* Ensure icon is displayed inline */
+  align-items: center;
+}
+
+.button__label {
+  position: sticky;
+  font-weight: bold;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.button:hover .button__label {
+  color: black;
+}
+
+.button > span {
+  position: absolute;
+  background-color: #fff;
+}
+
+.button > span:nth-child(2),
+.button > span:nth-child(3) {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 2px;
+  transition: width 200ms ease-in-out;
+}
+
+.button > span:nth-child(2) {
+  top: 0;
+}
+
+.button > span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Apply animation on hover */
+.button:hover > span:nth-child(2),
+.button:hover > span:nth-child(3) {
+  /* width: 100%; */
+  animation: expandWidth 200ms ease-in-out forwards;
+}
+
+/* Animation for the horizontal lines */
+@keyframes expandWidth {
+  0% {
+    width: 30%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.button > span:nth-child(4),
+.button > span:nth-child(5) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  background-color: #fff;
+  transition: height 200ms ease-in-out 100ms;
+}
+
+.button > span:nth-child(4) {
+  left: 0;
+}
+
+.button > span:nth-child(5) {
+  content: "";
+  right: 0;
+}
+
+/* Apply animation on hover */
+.button:hover > span:nth-child(4),
+.button:hover > span:nth-child(5) {
+  height: 100%;
+}
+
+.button > span:nth-child(6) {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  /* height: 0; */
+  /* transform-origin: top; */
+  transform: scaleY(0);
+  background-color: #fff;
+  transition: transform 200ms ease-in-out 100ms;
+}
+
+/* Apply animation on hover */
+.button:hover > span:nth-child(6) {
+  transform: scaleY(1);
+}

@@ -1,0 +1,129 @@
+/* ==============================
+  1. GLOBAL VARIABLES
+   ============================== */
+:root {
+  --cursor-x: 50vw; /* Default X position (centered) */
+  --cursor-y: 50vh; /* Default Y position (centered) */
+}
+
+/* ==============================
+    2. BASE STYLES
+     ============================== */
+/* Remove default cursor when on the landing page */
+.landing,
+.landing button,
+.landing a {
+  cursor: none !important;
+}
+
+/* ==============================
+    3. CUSTOM CURSOR COMPONENT
+     ============================== */
+.custom-cursor {
+  position: fixed; /* Ensures cursor remains in place */
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 102, 0, 0.8); /* Orange border */
+  border-radius: 4px;
+  pointer-events: none; /* Prevents interaction */
+  opacity: 0; /* Initially hidden */
+  z-index: 10000; /* Ensures cursor stays above all elements */
+  transition: transform 0.05s linear; /* Smooth movement transition */
+
+  /* Uses CSS variables to dynamically position cursor */
+  transform: translate(
+    calc(var(--cursor-x) - 50%),
+    calc(var(--cursor-y) - 50%)
+  );
+}
+
+/* Small dot in the center of the cursor */
+.custom-cursor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(255, 102, 0, 0.8);
+}
+
+/* ==============================
+    4. STATE MODIFIERS
+     ============================== */
+/* Makes the cursor visible */
+.visible {
+  opacity: 1;
+}
+
+/* Hides the cursor */
+.hidden {
+  opacity: 0;
+}
+
+/* Prevents the cursor from changing to a pointer on buttons and links */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  background-color: white;
+  transform: scale(2);
+}
+
+/* ==============================
+    5. ANIMATIONS
+     ============================== */
+/* Scale-in effect when cursor moves for the first time */
+.scale-in {
+  animation: fade-in-scale 0.4s ease-out forwards;
+}
+
+@keyframes fade-in-scale {
+  0% {
+    transform: translate(
+        calc(var(--cursor-x) - 50%),
+        calc(var(--cursor-y) - 50%)
+      )
+      scale(0); /* Start from zero size */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(
+        calc(var(--cursor-x) - 50%),
+        calc(var(--cursor-y) - 50%)
+      )
+      scale(1); /* Grow to full size */
+    opacity: 1;
+  }
+}
+
+/* Click animation: Shrinks briefly and then expands back */
+.click {
+  animation: shrink-effect 0.3s ease-out;
+}
+
+/* Prevents cursor from shrinking twice */
+@keyframes shrink-effect {
+  0% {
+    transform: translate(
+        calc(var(--cursor-x) - 50%),
+        calc(var(--cursor-y) - 50%)
+      )
+      scale(1); /* Start at normal size */
+  }
+  50% {
+    transform: translate(
+        calc(var(--cursor-x) - 50%),
+        calc(var(--cursor-y) - 50%)
+      )
+      scale(0.5); /* Shrink slightly */
+  }
+  100% {
+    transform: translate(
+        calc(var(--cursor-x) - 50%),
+        calc(var(--cursor-y) - 50%)
+      )
+      scale(1); /* Return to normal size */
+  }
+}

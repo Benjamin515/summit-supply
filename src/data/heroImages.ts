@@ -1,0 +1,67 @@
+type HeroImageGroup = {
+  path: string;
+  images: string[];
+};
+
+export const heroLandscapeImages: HeroImageGroup = {
+  path: "/images/hero-section/landscape/",
+  images: [
+    "aaker-RYjRmOQtlUA-unsplash.jpg",
+    "amey-meher-m70uKZsv_e4-unsplash.jpg",
+    "chris-altamirano-EmHOdj1NSgw-unsplash.jpg",
+    "curdin-_wrM2ZQJrv4-unsplash.jpg",
+    "daniel-llorente-OwwM68FlA9o-unsplash.jpg",
+    "datingscout-uAfb02o92C0-unsplash.jpg",
+    "fabrizio-conti-xPFhK0MGsyw-unsplash.jpg",
+    "holly-mandarich-bMog4gpujsI-unsplash.jpg",
+    "izzy-majcher-A3x-rJk5cQw-unsplash.jpg",
+    "izzy-majcher-e8l89YzAD3c-unsplash.jpg",
+    "kristjan-kotar--h15p84GY5k-unsplash.jpg",
+    "le-tan-6o7FApmk8bk-unsplash.jpg",
+    "lucija-ros-EBdPKgzcOQE-unsplash.jpg",
+    "mads-schmidt-rasmussen-4-ha0WT3DtY-unsplash.jpg",
+    "mats-hagwall-zpQGa6ZG0Ns-unsplash.jpg",
+    "micah-hallahan-FAn-NWH8Bzw-unsplash.jpg",
+    "neom-0SUho_B0nus-unsplash.jpg",
+    "neom-anozjF6uqI0-unsplash.jpg",
+    "neom-gj7WgSOIIu4-unsplash.jpg",
+    "photo-nic-xOigCUcFdA8-unsplash.jpg",
+    "tobias-cornille-4QWR5geRC9I-unsplash.jpg",
+    "tobias-mrzyk-iuqmGmst5Po-unsplash.jpg",
+  ],
+};
+
+export const heroPortraitImages: HeroImageGroup = {
+  path: "/images/hero-section/portrait/",
+  images: [
+    "adilet-asilbekov-V-RShIMKAGQ-unsplash.jpg",
+    "ali-kazal-6UqZFBC8x1Q-unsplash.jpg",
+    "anna-kulbashna-76BfKjlni0Y-unsplash.jpg",
+    "blake-cheek-jnJ89cuXMcs-unsplash.jpg",
+    "chad-madden-8mCMQSq41gQ-unsplash.jpg",
+    "chandler-media-WOW-Fz9Uz4s-unsplash.jpg",
+    "chris-leipelt-n176G7KiGqE-unsplash.jpg",
+    "dario-bronnimann-tu2apPbNQTs-unsplash.jpg",
+    "didin-emelu-8--kuxbxuKU-unsplash.jpg",
+    "gabor-kozmon-D953sPDbmt0-unsplash.jpg",
+    "ivana-cajina-e6f8IaRQY7M-unsplash.jpg",
+    "jinhan-moon-AbqahX8kz80-unsplash.jpg",
+    "jisca-lucia-HVTVOWDKTCk-unsplash.jpg",
+    "joel-jasmin-forestbird-znoL1m6MD_k-unsplash.jpg",
+    "kevin-doran-MH0Oxx6h550-unsplash.jpg",
+    "kitera-dent-ABBblFwicU8-unsplash.jpg",
+    "lane-smith-SqBK8g4g_ug-unsplash.jpg",
+    "lucas-favre-7EtzgOxT9B4-unsplash.jpg",
+    "magnus-ostberg-E-ole6Xdrss-unsplash.jpg",
+    "mohammad-alizade-zcRgHZF0q1A-unsplash.jpg",
+    "neom-m5Wj2ThjA14-unsplash.jpg",
+    "neom-QbDCsB2yCSM-unsplash.jpg",
+    "nicolas-weldingh-KFopPQgS0G4-unsplash.jpg",
+    "robert-bye-4jHzJU1PcU8-unsplash.jpg",
+    "roland-losslein-X7Res52lR3c-unsplash.jpg",
+    "stephane-fellay-pQH9uDT8e34-unsplash.jpg",
+    "tristan-pineda-Nk3-4mE6h2U-unsplash.jpg",
+    "vladlena-sigal-QQRWjepb_6g-unsplash.jpg",
+    "zachary-kyra-derksen-RfgWAyCBNWk-unsplash.jpg",
+  ],
+};

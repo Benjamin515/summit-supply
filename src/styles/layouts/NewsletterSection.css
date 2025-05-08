@@ -1,0 +1,54 @@
+.newsletter-section {
+  text-align: center;
+  padding: 2rem;
+  /* background-color: #f4f4f4;
+  border-radius: 8px; */
+}
+
+.newsletter-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscription-options {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.subscription-option {
+  margin-bottom: 1rem;
+}
+
+.subscription-option input {
+  margin-right: 10px;
+}
+
+.input-section input,
+.input-section button {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.cta-button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}

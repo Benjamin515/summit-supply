@@ -27,7 +27,7 @@
   }
 }
 
-.category-showcase__left:hover .category-showcase__nav {
+.category-showcase__nav--hidden {
   height: 0;
   transform: scaleY(0);
 }

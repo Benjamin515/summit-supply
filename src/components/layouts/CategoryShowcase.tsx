@@ -25,6 +25,7 @@ function CategoryShowcase() {
     "down"
   );
   const [isHovered, setIsHovered] = useState(false);
+  const [isBodyHovered, setIsBodyHovered] = useState(false);
   const [isTextBoxVisible, setIsTextBoxVisible] = useState(false);
   // Initial dynamic data (this can be fetched or updated as needed)
   const [dataArray, setDataArray] = useState<string[]>([
@@ -218,7 +219,11 @@ function CategoryShowcase() {
   return (
     <div className="category-showcase">
       <div className="category-showcase__left">
-        <div className="category-showcase__nav">
+        <div
+          className={`category-showcase__nav ${
+            isBodyHovered ? "category-showcase__nav--hidden" : ""
+          }`}
+        >
           {categories.map((category) => (
             <button
               type="button"
@@ -229,7 +234,11 @@ function CategoryShowcase() {
           ))}
         </div>
 
-        <div className="category-showcase__left__body">
+        <div
+          className="category-showcase__left__body"
+          onMouseEnter={() => setIsBodyHovered(true)}
+          onMouseLeave={() => setIsBodyHovered(false)}
+        >
           <div className="category-showcase__left__body--background"></div>
           <div className="category-showcase__category--active">
             <p>{activeCategory}</p>

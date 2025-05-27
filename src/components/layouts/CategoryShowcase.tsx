@@ -5,9 +5,13 @@ import "../../styles/layouts/CategoryShowcase.css";
 import { useAutoVerticalScroll } from "@/hooks/useAutoVerticalScroll";
 import Button from "../ui/Button";
 import { categories } from "@/data/categoriesData";
+import CategoryShowcaseNavbar from "./CategoryShowcaseNavbar";
+import { Categories, CollectionItem } from "@/types/types";
 
 function CategoryShowcase() {
-  const [activeCategory, setActiveCategory] = useState("Tops");
+  const [activeCategory, setActiveCategory] = useState<Categories>(
+    categories[0]
+  );
   const scrollRef = useRef<HTMLDivElement>(null);
   // Refs for the three scroll tracks
   const scrollRef1 = useRef<HTMLDivElement | null>(null);
@@ -200,6 +204,10 @@ function CategoryShowcase() {
     return () => clearInterval(interval);
   }, [isHovered, scrollDirection]); */
 
+  const handleCategoryChange = (category: Categories) => {
+    setActiveCategory(category);
+  };
+
   // Function to set the scroll direction to 'down'
   const scrollToBottom = () => {
     if (scrollRef.current) {
@@ -219,7 +227,7 @@ function CategoryShowcase() {
   return (
     <div className="category-showcase">
       <div className="category-showcase__left">
-        <div
+        {/* <div
           className={`category-showcase__nav ${
             isBodyHovered ? "category-showcase__nav--hidden" : ""
           }`}
@@ -232,7 +240,11 @@ function CategoryShowcase() {
               {category.category}
             </button>
           ))}
-        </div>
+        </div> */}
+        <CategoryShowcaseNavbar
+          isBodyHovered={isBodyHovered}
+          onCategorySelect={handleCategoryChange}
+        />
 
         <div
           className="category-showcase__left__body"
@@ -241,14 +253,40 @@ function CategoryShowcase() {
         >
           <div className="category-showcase__left__body--background"></div>
           <div className="category-showcase__category--active">
-            <p>{activeCategory}</p>
-            <p>{activeCategory}</p>
-            <p>{activeCategory}</p>
-            <ul className="category-showcase__categories">
-              {categories[1].collection?.map((collection) => (
-                <li>{collection.name}</li>
-              ))}
-            </ul>
+            <h2>{activeCategory.category}</h2>
+            <h2>{activeCategory.category}</h2>
+            <h2>{activeCategory.category}</h2>
+
+            <div className="category-showcase__categories">
+              {/* <p>{activeCategory.description}</p> */}
+              {!activeCategory.subcategories ? (
+                <ul>
+                  {activeCategory.collection?.map((collection) => (
+                    <li key={collection.name}>{collection.name}</li>
+                  ))}
+                </ul>
+              ) : (
+                <ul className="category-showcase__subcategories">
+                  {activeCategory.subcategories.map((subcategory) => (
+                    <li
+                      key={subcategory.category}
+                      className="category-showcase__subcategory"
+                    >
+                      <h3>{subcategory.category}</h3>
+                      <ul>
+                        {subcategory.collection?.map((collection) => (
+                          <li
+                            key={`${subcategory.category}-${collection.name}`}
+                          >
+                            {collection.name}
+                          </li>
+                        )) ?? null}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             <Button label="Shop Now" className="category-showcase__cta" />
           </div>
         </div>
@@ -278,7 +316,7 @@ function CategoryShowcase() {
               key={`text-box-${index}`}
             >
               {Array.from({ length: 3 }).map((_, index) => (
-                <p key={index}>Tops</p>
+                <p key={index}>{activeCategory.category}</p>
               ))}
             </div>
           ))}
@@ -315,7 +353,7 @@ function CategoryShowcase() {
               key={`text-box-${index}`}
             >
               {Array.from({ length: 3 }).map((_, index) => (
-                <p key={index}>Tops</p>
+                <p key={index}>{activeCategory.category}</p>
               ))}
             </div>
           ))}
@@ -340,7 +378,7 @@ function CategoryShowcase() {
               key={`text-box-${index}`}
             >
               {Array.from({ length: 3 }).map((_, index) => (
-                <p key={index}>Tops</p>
+                <p key={index}>{activeCategory.category}</p>
               ))}
             </div>
           ))}

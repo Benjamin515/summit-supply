@@ -12,26 +12,6 @@
   align-items: center;
 }
 
-.category-showcase__nav {
-  display: flex;
-  align-items: center;
-  column-gap: 30px;
-  height: 1.5rem;
-  transform-origin: top;
-  transform: scaleY(1);
-  transition: height 100ms ease-in-out, transform 100ms ease-in-out;
-
-  & > button {
-    font-size: 1rem;
-    font-weight: 500;
-  }
-}
-
-.category-showcase__nav--hidden {
-  height: 0;
-  transform: scaleY(0);
-}
-
 .category-showcase__left__body {
   display: flex;
   align-items: center;

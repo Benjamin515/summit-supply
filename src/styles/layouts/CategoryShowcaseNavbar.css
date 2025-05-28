@@ -1,0 +1,21 @@
+.category-showcase__nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+  /* height: 1.5rem; */
+  transform-origin: top;
+  transform: scaleY(1);
+  transition: height 100ms ease-in-out, transform 100ms ease-in-out;
+}
+
+.category-showcase__nav > button {
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.category-showcase__nav--hidden {
+  height: 0;
+  transform: scaleY(0);
+}
